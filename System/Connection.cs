@@ -13,9 +13,9 @@ namespace System
         {
             string server = "localhost";
             string port = "3306";
-            string user = "root";
-            string password = "1234";
-            string database = "System_Users";
+            string user = "user1";
+            string password = "123456";
+            string database = "system_users";
             string connectionString = "server=" + server + ";port=" + port + ";user id=" + user +
                 ";password=" + password + ";database=" + database;
             

@@ -41,6 +41,20 @@ namespace System
             }catch(Exception ex) 
             { MessageBox.Show(ex.Message); 
             }
+            txtUser.Clear();
+            txtPassword.Clear();
+            txtName.Clear();
+            txtConPasword.Clear();
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmRegister.ActiveForm.Hide();
+            frmLogin login = new frmLogin();
+
+            login.Show();
+            
         }
     }
 }

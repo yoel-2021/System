@@ -12,7 +12,7 @@ namespace System
         public string ctrlRegister(Users user)
         {
             Model model = new Model();
-            string response = "";
+            string response = "Suceed Register";
 
             if (string.IsNullOrEmpty(user.User)|| string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.ConPassword) || string.IsNullOrEmpty(user.Name))
             {
@@ -38,9 +38,37 @@ namespace System
                 }
             }
             return response;
+            
         }
 
+        public string ctrlLogin(string user, string password)
+        {
+            Model model=new Model();
+            string response = "";
+            Users userData = null;
+           
+            if (string.IsNullOrEmpty(user)|| string.IsNullOrEmpty(password))
+            {
+                response = "Please fill out all fields";
+            }
+            else
+            {
+                userData = model.byUser(user);
+            }
+            if (userData==null)
+            {
+                response = "User not exist";
+            }
+            else
+            {
+                if (userData.Password!= generateSHA1(password))
+                {
+                    response = "Password or User are wrongs";
+                }
+            }return response;
+        }
 
+   
         private string generateSHA1(string cadena)
         {
             UTF8Encoding enc = new UTF8Encoding();
