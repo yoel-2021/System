@@ -15,6 +15,19 @@ namespace System
         public frmPrincipal()
         {
             InitializeComponent();
+            loadTable(null);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string data = txtSearch.Text;
+            loadTable(data);
+        }
+        private void loadTable(string data)
+        {
+            List<Products> list = new List<Products>();
+            ProductsController productsController = new ProductsController();
+            dataGridView1.DataSource = productsController.ask(data);
         }
     }
 }

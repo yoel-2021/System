@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace System
 {
-    class Controller
+    class ControllerRegister
     { 
         public string ctrlRegister(Users user)
         {

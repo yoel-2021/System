@@ -29,7 +29,7 @@ namespace System
 
             try
             {
-                Controller ctrl = new Controller();
+                ControllerRegister ctrl = new ControllerRegister();
                 string response = ctrl.ctrlLogin(user, password);
 
                 if (response.Length > 0)

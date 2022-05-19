@@ -27,7 +27,7 @@ namespace System
             user.Name = txtName.Text;
 
             try { 
-            Controller controller = new Controller();
+            ControllerRegister controller = new ControllerRegister();
             string response = controller.ctrlRegister(user);
 
             if (response.Length > 0)
