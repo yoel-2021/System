@@ -51,5 +51,74 @@ namespace System
             }
             return list;
          } 
+
+        public bool insert (Products datas)
+        {
+            bool correcct = false;
+
+            string sql = "INSERT INTO products(code, name, description, public_price, stock)VALUES ('" + datas.Code + "', '" + datas.Name + "', '" + datas.Description + "', '" + datas.Public_price + "', '" + datas.Stock + "')";
+            try
+            {
+                MySqlConnection conecctionBD = ConnectionProducts.getConnectionProducts();
+                conecctionBD.Open();
+
+                MySqlCommand command = new MySqlCommand(sql, conecctionBD);
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                correcct = false;
+            }
+            return correcct;
+        
+        
+        }
+
+        public bool update(Products datas)
+        {
+            bool correcct = false;
+
+            string sql = "UPDATE SET products code= '" + datas.Code + "', name='" + datas.Name + "', description='" + datas.Description + "', public_price='" + datas.Public_price + "', stock='" + datas.Stock + "' WHERE id='" + datas.Id + "'";
+            try
+            {
+                MySqlConnection conecctionBD = ConnectionProducts.getConnectionProducts();
+                conecctionBD.Open();
+
+                MySqlCommand command = new MySqlCommand(sql, conecctionBD);
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                correcct = false;
+            }
+            return correcct;
+
+
+        }
+        public bool delete(int id)
+        {
+            bool correcct = false;
+
+            string sql = "DELETE FROM products WHERE id='" +id +"'";
+            try
+            {
+                MySqlConnection conecctionBD = ConnectionProducts.getConnectionProducts();
+                conecctionBD.Open();
+
+                MySqlCommand command = new MySqlCommand(sql, conecctionBD);
+                command.ExecuteNonQuery();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+                correcct = false;
+            }
+            return correcct;
+
+
+        }
+
     } 
 }
